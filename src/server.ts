@@ -1,9 +1,10 @@
 import { App } from '@/app';
-import { UserRoute } from '@routes/users.route';
 import { ValidateEnv } from '@utils/validateEnv';
+import { RestaurantRoute } from './routes/restaurant.route';
+import { TagRoute } from './routes/tag.route';
 
 ValidateEnv();
 
-const app = new App([new UserRoute()]);
+const app = new App([new RestaurantRoute(), new TagRoute()]);
 
 app.listen();
