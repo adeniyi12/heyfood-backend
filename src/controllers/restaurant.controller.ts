@@ -13,4 +13,24 @@ export class RestaurantController {
       next(error);
     }
   };
+
+  public sortRestaurants = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const option = req.query.option as string;
+      const findAllRestaurantsData: Restaurant[] = await this.restaurant.sortAllRestaurant(option);
+      res.status(200).json({ data: findAllRestaurantsData, message: 'Restaurants sorted' });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  public findRestaurant = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const name = req.query.name as string;
+      const findRestaurantData: Restaurant[] = await this.restaurant.findRestaurant(name);
+      res.status(200).json({ data: findRestaurantData, message: 'found restaurant' });
+    } catch (error) {
+      next(error);
+    }
+  };
 }

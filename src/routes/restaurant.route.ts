@@ -13,5 +13,7 @@ export class RestaurantRoute implements Routes {
 
   private initializeRoutes() {
     this.router.get(`${this.path}`, this.restaurant.getRestaurants);
+    this.router.get(`${this.path}/search`, this.restaurant.findRestaurant);
+    this.router.get(`${this.path}/sortby`, this.restaurant.sortRestaurants);
   }
 }
